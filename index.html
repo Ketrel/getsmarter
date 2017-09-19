@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="./main.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function(event){doSetup();});
+
+        function showPasswordNotice(e){
+            alert(document.getElementById('passwordBox').value);
+            e.preventDefault();
+            return false;
+        }
+
+        function doSetup(){
+            document.getElementById('passwordSubmit').addEventListener('click',showPasswordNotice);
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
@@ -18,8 +31,27 @@
             <span class="navbar-text">Learn How To Protect Your Password</span>
         </div>
     </nav>    
-    <div class="container-fluid">
-
+    <div class="container">
+        <div class="card card-shadow">
+            <div class="card-block">
+                <form>
+                    <h3>Password Compromise Checker</h3>
+                    <div>Use this form to check if your password has been compromised.</div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="passwordBox" class="col-1 col-form-label">Password: </label>
+                        <div class="col-3">
+                            <input type="password" class="form-control" id="passwordBox"></input>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-1">
+                            <input type="submit" class="btn btn-primary" id="passwordSubmit" value="Check My Password"></input>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
