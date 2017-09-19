@@ -9,3 +9,13 @@ body {
 .card-shadow {
     box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.3);
 }
+
+#message {
+    display: none;
+}
+
+pre {
+    font-size: 1rem;
+    white-space: pre-wrap;
+}
+
