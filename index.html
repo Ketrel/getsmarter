@@ -34,12 +34,16 @@
         document.addEventListener("DOMContentLoaded",function(event){doSetup();});
 
         function showPasswordNotice(e){
-            //alert(document.getElementById('passwordBox').value);
 
             pwreplace = document.getElementsByClassName('thepw')
+            pwreplacement = String(document.getElementById('passwordBox').value);
+
+            if (pwreplacement == '') { pwreplacement = '&lt;none entered&gt;'; }
+
             for (var i=0; i < pwreplace.length; i++){
-                pwreplace[i].innerHTML = document.getElementById('passwordBox').value;
+                pwreplace[i].innerHTML = pwreplacement;
             }
+
             document.getElementById('main').innerHTML = document.getElementById('message').innerHTML;
 
             e.preventDefault();
@@ -65,16 +69,16 @@
                 <form>
                     <h3>Password Compromise Checker</h3>
                     <div>Use this form to check if your password has been compromised.</div>
-                    <hr>
+                    <hr />
                     <div class="form-group row">
                         <label for="passwordBox" class="col-1 col-form-label">Password: </label>
                         <div class="col-3">
-                            <input type="password" class="form-control" id="passwordBox"></input>
+                            <input type="password" class="form-control" id="passwordBox" name="passwordBox" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-1">
-                            <input type="submit" class="btn btn-primary" id="passwordSubmit" value="Check My Password"></input>
+                            <button class="btn btn-primary" id="passwordSubmit">Check My Password</button>
                         </div>
                     </div>
                 </form>
@@ -83,11 +87,11 @@
     </div>
     <div id="message">
         <h3>You submitted: <span class="thepw"></span></h3>
-        <hr>
+        <hr />
 <pre>
 There's a chance your password may have been compromised, but you just submitted it to a random website.
 Now it's definite that your password was compromised.
-The password you submitted: <strog><span class="thepw"></span></strong>, could be anywhere.  You didn't even have to click the submit button.
+The password you submitted: "<strong><span class="thepw"></span></strong>", could be anywhere.  You didn't even have to click the submit button.
 Anything you type on any web page could be sent anywhere else.
 
 There are some basic security practices you could follow to prevent this in the future.
@@ -99,7 +103,7 @@ There are some basic security practices you could follow to prevent this in the 
 <li>Especially for sensitive sites like banking and medical, don't click links to get there, type the URL yourself.</li>
 </ul>
 <pre>
-This site was setup to act as a warning. I didn't do send your password anywhere, but you can never be too careful.
+This site was setup to act as a warning. I didn't store nor send your password anywhere, but you can never be too careful.
 You should change the password you submitted here, "<strong><span class="thepw"></span></strong>" and don't reuse it (or any common variation of it) again.
 </pre>
     </div>
