@@ -10,14 +10,25 @@
     <style type="text/css">
         body {
             background: rgba(240,240,240,1);
+            text-align: center;
         }
 
         .container {
-            margin-top: 80px;
+            margin-top: 40px;
+            display: inline-block;
+            width: auto;
+        }
+
+        .card-adapt {
+            text-align: left;
         }
 
         .card-shadow {
             box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.3);
+        }
+
+        .bolded {
+            font-weight: bold;
         }
 
         #message {
@@ -64,7 +75,7 @@
         </div>
     </nav>    
     <div class="container">
-        <div class="card card-shadow">
+        <div class="card card-adapt card-shadow">
             <div class="card-block" id="main">
                 <form>
                     <h3>Password Compromise Checker</h3>
@@ -72,14 +83,15 @@
                     <hr />
                     <br />
                     <div class="form-group row">
-                        <label for="passwordBox" class="col-1 col-form-label">Password: </label>
-                        <div class="col-3">
+                        <label for="passwordBox" class="sr-only col-sm-2 col-form-label">Password: </label>
+                        <div class="col-sm input-group">
+                            <span class="input-group-addon">Password</span>
                             <input type="password" class="form-control" id="passwordBox" name="passwordBox" />
                         </div>
                     </div>
                     <br />
                     <div class="form-group row">
-                        <div class="col-1">
+                        <div class="col-sm">
                             <button class="btn btn-primary" id="passwordSubmit">Check My Password</button>
                         </div>
                     </div>
