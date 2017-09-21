@@ -39,6 +39,10 @@
             font-size: 1rem;
             white-space: pre-wrap;
         }
+
+        .b-org {
+            display: none;
+        }
     </style>
     <script type="text/javascript">
     <!--
@@ -46,13 +50,22 @@
 
         function showPasswordNotice(e){
 
-            pwreplace = document.getElementsByClassName('thepw')
-            pwreplacement = String(document.getElementById('passwordBox').value);
+            var pwreplace = document.getElementsByClassName('thepw')
+            var pwreplacement = String(document.getElementById('passwordBox').value);
+            var h2 = null;
 
             if (pwreplacement == '') { pwreplacement = '&lt;none entered&gt;'; }
+            if (pwreplacement == 'hunter2') { h2 = 'hunter2'; pwreplacement = '*******'; }
 
             for (var i=0; i < pwreplace.length; i++){
                 pwreplace[i].innerHTML = pwreplacement;
+            }
+
+            if(h2 != null){
+                var h2replace = document.getElementsByClassName('b-org');
+                for (var i=0; i < h2replace.length; i++){
+                    h2replace[i].style.display="initial";
+                }
             }
 
             document.getElementById('main').innerHTML = document.getElementById('message').innerHTML;
@@ -99,6 +112,7 @@
     </div>
     <div id="message">
         <h3>You submitted: <span class="thepw"></span></h3>
+        <h3 class="b-org">yep, no matter how many times you type hunter2, it will show to us as *******</h3>
         <hr />
 <pre>
 So, is your password compromised? Now it is!
