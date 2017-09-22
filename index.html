@@ -51,7 +51,7 @@
         function showPasswordNotice(e){
 
             var pwreplace = document.getElementsByClassName('thepw')
-            var pwreplacement = String(document.getElementById('passwordBox').value);
+            var pwreplacement = String(document.getElementById('passwordBox').value).replace(/</g,'&lt;').replace(/>/g,'&gt;');
             var h2 = null;
 
 
