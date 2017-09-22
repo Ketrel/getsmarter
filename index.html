@@ -31,7 +31,7 @@
             font-weight: bold;
         }
 
-        #message {
+        #message-bad, #message-neutral {
             display: none;
         }
 
@@ -54,21 +54,26 @@
             var pwreplacement = String(document.getElementById('passwordBox').value);
             var h2 = null;
 
-            if (pwreplacement == '') { pwreplacement = '&lt;none entered&gt;'; }
-            if (pwreplacement == 'hunter2') { h2 = 'hunter2'; pwreplacement = '*******'; }
 
-            for (var i=0; i < pwreplace.length; i++){
-                pwreplace[i].innerHTML = pwreplacement;
-            }
+            if (pwreplacement == ''){
+                document.getElementById('main').innerHTML = document.getElementById('message-neutral').innerHTML;
+            }else{
+ 
+                if (pwreplacement == 'hunter2') { h2 = 'hunter2'; pwreplacement = '*******'; }
 
-            if(h2 != null){
-                var h2replace = document.getElementsByClassName('b-org');
-                for (var i=0; i < h2replace.length; i++){
-                    h2replace[i].style.display="initial";
+                for (var i=0; i < pwreplace.length; i++){
+                    pwreplace[i].innerHTML = pwreplacement;
                 }
-            }
 
-            document.getElementById('main').innerHTML = document.getElementById('message').innerHTML;
+                if(h2 != null){
+                    var h2replace = document.getElementsByClassName('b-org');
+                    for (var i=0; i < h2replace.length; i++){
+                        h2replace[i].style.display="initial";
+                    }
+                }
+
+                document.getElementById('main').innerHTML = document.getElementById('message-bad').innerHTML;
+            }
 
             e.preventDefault();
             return false;
@@ -110,7 +115,24 @@
             </div>
         </div>
     </div>
-    <div id="message">
+    <div id="message-neutral">
+        <h3>You submitted....nothing</h3>
+        <hr />
+<pre>
+Given the choice between submitting something, and submitting nothing, you certainly chose the better of the two.
+
+However, there is a third option.  This is a site that was intentionally designed to be suspicious.
+If you encounter a site such as this, the best thing you can do is to leave.
+
+Close the tab/window, and don't trust anything on the site.
+
+Make a note of how you got there, did you perhaps click a deceptive link? Was it emailed to you?
+Whichever it was, you should be extra careful to not do it again.
+
+That being said, you should at least be proud of yourself for not giving up one of your passwords.  That could have a far worse outcome.
+</pre>
+    </div>
+    <div id="message-bad">
         <h3>You submitted: <span class="thepw"></span></h3>
         <h3 class="b-org">yep, no matter how many times you type hunter2, it will show to us as *******</h3>
         <hr />
@@ -132,7 +154,7 @@ There are some basic security practices you could follow to prevent this in the 
 <li>Use a different password for each site.</li>
 <li>Don't give out your password to anybody who shouldn't have it.</li>
 <li>Always check the URL to ensure it's where you want to be.</li>
-<li>If at all possibble, use the HTTPS version of a page and not the HTTP version</li>
+<li>If at all possible, use the HTTPS version of a page and not the HTTP version</li>
 <li>If an email wants you to click a link, and doesn't refer to you by name or an accurate account number, immediately be suspicious.</li>
 <li>When it comes to especially sensitive sites like banking and medical, don't click links to get there, type the URL yourself.</li>
 </ul>
