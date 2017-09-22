@@ -51,7 +51,7 @@
         function showPasswordNotice(e){
 
             var pwreplace = document.getElementsByClassName('thepw')
-            var pwreplacement = String(document.getElementById('passwordBox').value).replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            var pwreplacement = String(document.getElementById('passwordBox').value);
             var h2 = null;
 
 
@@ -62,7 +62,7 @@
                 if (pwreplacement == 'hunter2') { h2 = 'hunter2'; pwreplacement = '*******'; }
 
                 for (var i=0; i < pwreplace.length; i++){
-                    pwreplace[i].innerHTML = pwreplacement;
+                    pwreplace[i].innerText = pwreplacement;
                 }
 
                 if(h2 != null){
